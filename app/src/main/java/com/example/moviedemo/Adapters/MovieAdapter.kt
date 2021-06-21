@@ -1,5 +1,6 @@
 package com.example.moviedemo.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,11 +9,12 @@ import com.example.moviedemo.data.response.MovieItem
 import com.example.moviedemo.databinding.MovieItemBinding
 import com.squareup.picasso.Picasso
 
-class MovieAdapter(private val list: List<MovieItem>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(var list: List<MovieItem>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
-    inner class ViewHolder(binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: MovieItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movieItem: MovieItem) {
-            Picasso.get().load(MovieAPIClient.IMAGE_URL + movieItem.poster_path)
+            binding.movieItem = movieItem
+            Picasso.get().load(MovieAPIClient.IMAGE_URL + movieItem.poster_path).into(binding.imageView)
         }
     }
 

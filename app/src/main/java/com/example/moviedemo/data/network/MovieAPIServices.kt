@@ -6,6 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieAPIServices {
-    @GET("movie?apikey=${MovieAPIClient.API_KEY}")
+    @GET("movie/now_playing?api_key=${MovieAPIClient.API_KEY}&language=en-US")
     suspend fun getNowPlaying(@Query("page") page: String): Response<NowPlayingResponse>
 }
