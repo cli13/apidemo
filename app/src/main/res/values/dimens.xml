@@ -5,4 +5,5 @@
     <dimen name="movie_image_height">150dp</dimen>
     <dimen name="movie_image_margin_top">10dp</dimen>
     <dimen name="default_movie_margin">10dp</dimen>
+    <dimen name="default_main_activity_padding">5dp</dimen>
 </resources>
